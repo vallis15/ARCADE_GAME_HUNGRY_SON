@@ -26,24 +26,32 @@ class Coin(arcade.Sprite):
     def __init__(self, filename, scale):
         super().__init__(filename, scale)
         self.visible_timer = 0.0
+        self.change_x = random.uniform(-1, 2)
+        self.change_y = random.uniform(-1, 2)
 
     def update(self):
         self.visible_timer += 1 / 60
 
         if self.visible_timer >= 3.0:
             self.remove_from_sprite_lists()
+        self.center_x += self.change_x
+        self.center_y += self.change_y
 
 
 class Broccoli(arcade.Sprite):
     def __init__(self, filename, scale):
         super().__init__(filename, scale)
         self.visible_timer = 0.0
+        self.change_x = random.uniform(-1, 2)
+        self.change_y = random.uniform(-1, 2)
 
     def update(self):
         self.visible_timer += 1 / 60
 
         if self.visible_timer >= 3.0:
             self.remove_from_sprite_lists()
+        self.center_x += self.change_x
+        self.center_y += self.change_y
 
 
 class MyGame(arcade.Window):
